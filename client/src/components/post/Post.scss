@@ -1,0 +1,25 @@
+.post{
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 20px;
+color: rgb(109, 108, 108);
+
+content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 5px;
+
+    .discription{
+        margin-top: 3px;
+        height: 10px;
+    }
+    .salary{
+        margin-top: 10px;
+    }
+}
+}
