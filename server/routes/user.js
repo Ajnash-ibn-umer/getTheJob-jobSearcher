@@ -2,7 +2,7 @@
 import express from 'express'
 
 //import local modules
-
+import control from '../controls/userControls.js'
 
 //declare variables
 
@@ -11,8 +11,15 @@ import express from 'express'
 
 const route=express.Router()
 
-route.get('/',(req,res)=>{
-    res.json({name:'ajnash'})
+route.get('/signup',(req,res)=>{
+   const body=req.body;
+   
+    control.signup(body).then((response)=>{
+       
+        res.status(201).send(response)
+    }).catch(err=>{
+        res.status(400).send(err)
+    })
    
 })
 
