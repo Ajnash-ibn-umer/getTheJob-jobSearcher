@@ -1,26 +1,71 @@
 //import modules
-import express from 'express'
+import express from "express";
+import jwt from "jsonwebtoken";
 
 //import local modules
-import control from '../controls/userControls.js'
+import control from "../controls/userControls.js";
+import { secretKey } from "../config/constants.js";
 
 //declare variables
 
-
 ////
+const verifyLogin = (req, res, next) => {
+  const token = req.headers.token;
+  console.log("tk", token);
+  jwt.verify(token, secretKey, (err, value) => {
+    if (err) {
+      console.log(err.message);
+      res.status(401).send(err.message);
+    } else {
+      console.log(value);
+      next();
+    }
+  });
+};
+///////////////////////////////////////////////
 
-const route=express.Router()
+const router = express.Router();
 
-route.get('/signup',(req,res)=>{
-   const body=req.body;
-   
-    control.signup(body).then((response)=>{
-       
-        res.status(201).send(response)
-    }).catch(err=>{
-        res.status(400).send(err)
+
+
+//signup route **************************
+
+
+router.post("/signup", (req, res) => {
+  const body = req.body;
+
+  control
+    .signup(body)
+    .then((response) => {
+      res.status(201).json(response);
     })
-   
-})
+    .catch((err) => {
+      res.status(400).send(err);
+     
+    });
+});
+///login route ******************************
 
-export default  route
+
+router.post("/login", (req, res) => {
+  control
+    .login(req.body)
+    .then((response) => {
+      res.header("token", response.token).status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(401).send(err);
+    });
+});
+
+
+
+/// home rote***************************
+
+router.get("/", (req, res) => {
+  res.send("this is home page");
+});
+
+
+
+export default router;
