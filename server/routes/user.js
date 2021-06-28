@@ -9,19 +9,7 @@ import { secretKey } from "../config/constants.js";
 //declare variables
 
 ////
-const verifyLogin = (req, res, next) => {
-  const token = req.headers.token;
-  console.log("tk", token);
-  jwt.verify(token, secretKey, (err, value) => {
-    if (err) {
-      console.log(err.message);
-      res.status(401).send(err.message);
-    } else {
-      console.log(value);
-      next();
-    }
-  });
-};
+
 ///////////////////////////////////////////////
 
 const router = express.Router();
@@ -62,8 +50,20 @@ router.post("/login", (req, res) => {
 
 /// home rote***************************
 
-router.get("/", (req, res) => {
-  res.send("this is home page");
+router.get("/auth", (req, res) => {
+  const token = req.headers.token;
+  console.log("tk", token);
+  jwt.verify(token, secretKey, (err, value) => {
+    if (err) {
+      console.log(err.message);
+      res.status(401).send(err.message);
+    } else {
+      console.log(value.data);
+      res.status(201).send(value.data)
+      
+    }
+  });
+
 });
 
 

@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useState,useContext } from "react";
+import {useHistory} from 'react-router-dom'
 import "./Signup.css";
 import {ApiContext} from '../../store/context'
 
@@ -10,7 +10,7 @@ function Signup() {
   const [confirm_password, setConfrim_password] = useState("");
 
 const api =useContext(ApiContext)
-
+const history=useHistory()
   return (
     <div className="mainArea">
       <div className="formArea">
@@ -26,6 +26,7 @@ const api =useContext(ApiContext)
              confirm_password
            }).then(res=>{
              console.log(res)
+             history.push('/login')
            }).catch(error=>{
             console.log(error.response.data);
       console.log(error.response.status);

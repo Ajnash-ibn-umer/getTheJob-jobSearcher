@@ -1,0 +1,93 @@
+.mainArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.mainArea .formArea {
+  width: 450px;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.459);
+  border-radius: 10px;
+}
+
+.mainArea .formArea h1 {
+  margin-top: 10px;
+}
+
+.mainArea .formArea form {
+  border-radius: 10px;
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainArea .formArea form label {
+  margin-top: 15px;
+}
+
+.mainArea .formArea form input {
+  margin-top: 5px;
+  width: 60%;
+  height: 30px;
+  border-radius: 5px;
+  border-style: none;
+  border-width: 5px;
+  border-color: gray;
+}
+
+.mainArea .formArea form input:focus {
+  outline: none;
+}
+
+.mainArea .formArea form .btn {
+  margin-top: 20px;
+  color: white;
+  background-color: #bdbdbd;
+  border-radius: 5px;
+  border-width: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  width: 100px;
+  border: none;
+  height: 30px;
+}
+
+.mainArea .formArea form .btn:hover {
+  background-color: white;
+  color: black;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.mainArea .formArea form p {
+  text-decoration: underline;
+  color: #2bcdff;
+  text-align: left;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=Login.css.map */

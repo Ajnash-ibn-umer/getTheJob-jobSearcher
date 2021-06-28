@@ -8,7 +8,7 @@
   color: #6d6c6c;
 }
 
-.post content {
+.post div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,12 +23,12 @@
   margin-top: 5px;
 }
 
-.post content .discription {
+.post div .discription {
   margin-top: 3px;
   height: 10px;
 }
 
-.post content .salary {
+.post div .salary {
   margin-top: 10px;
 }
 /*# sourceMappingURL=Post.css.map */
