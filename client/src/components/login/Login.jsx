@@ -1,13 +1,16 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { ApiContext } from "../../store/context";
-
+import { ApiContext, AuthContext } from "../../store/context";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import  {Button} from 'react-bootstrap'
 import "./Login.css";
-function Login() {
+function Login () {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-const history=useHistory()
+  const history = useHistory();
   const api = useContext(ApiContext);
+  const { setUser, user } = useContext(AuthContext);
+
   return (
     <div className="mainArea">
       <div className="formArea">
@@ -21,15 +24,18 @@ const history=useHistory()
                 email,
                 password,
               })
-              .then((res) => {
-                console.log(res);
-                console.log(res.data.token)
-                history.push('/')
-
+              .then(async(res) => {
+                //  console.log(res);
+               // console.log(res.data.token);
+               console.log(res.data.userData);
+              await  setUser({ data: res.data.userData, token: res.data.token });
+              console.log('user',user.token)
+              await localStorage.setItem('token',res.data.token)
+                history.push("/");
               })
               .catch((error) => {
                 console.log(error.response.data);
-                
+
                 console.log(error.response.status);
               });
           }}
@@ -53,8 +59,9 @@ const history=useHistory()
               setPassword(e.target.value);
             }}
           />
+
           <button className="btn">Login</button>
-          <p onClick={()=>history.push('/signup')}>Create an Acoount</p>
+          <p onClick={() => history.push("/signup")}>Create an Acoount</p>
         </form>
       </div>
     </div>

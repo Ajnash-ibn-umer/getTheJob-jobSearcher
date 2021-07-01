@@ -10,14 +10,24 @@ import { secretKey } from "../config/constants.js";
 
 ////
 
+const verifyLogin = (req, res, next) => {
+  const token = req.headers.token;
+  console.log("tk", token);
+  jwt.verify(token, secretKey, (err, value) => {
+    if (err) {
+      console.log(err.message);
+      res.status(401).send(err.message);
+    } else {
+      console.log(value.data);
+      next();
+    }
+  });
+};
 ///////////////////////////////////////////////
 
 const router = express.Router();
 
-
-
 //signup route **************************
-
 
 router.post("/signup", (req, res) => {
   const body = req.body;
@@ -29,11 +39,9 @@ router.post("/signup", (req, res) => {
     })
     .catch((err) => {
       res.status(400).send(err);
-     
     });
 });
 ///login route ******************************
-
 
 router.post("/login", (req, res) => {
   control
@@ -46,8 +54,6 @@ router.post("/login", (req, res) => {
     });
 });
 
-
-
 /// home rote***************************
 
 router.get("/auth", (req, res) => {
@@ -59,13 +65,17 @@ router.get("/auth", (req, res) => {
       res.status(401).send(err.message);
     } else {
       console.log(value.data);
-      res.status(201).send(value.data)
-      
+      control
+        .getUser(value.data)
+        .then((resp) => {
+          console.log('usr',resp);
+          res.json(resp);
+        })
+        .catch((err) => {
+          res.send(err);
+        });
     }
   });
-
 });
-
-
 
 export default router;

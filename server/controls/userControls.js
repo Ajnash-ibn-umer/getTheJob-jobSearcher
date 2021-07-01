@@ -65,7 +65,7 @@ export default {
     return new Promise(async (resolve, reject) => {
       console.log(userData);
       const user = await userSchema.findOne({ email: userData.email });
-
+const auth=true;
       if (!user) {
         reject("user is not found");
       } else {
@@ -85,7 +85,7 @@ export default {
                   } else {
                     const token = decoded;
                     console.log("token", token);
-                    resolve({ message: "password is correct", userData: user,token });
+                    resolve({ message: "password is correct", userData: user,token ,auth:true});
                   }
                 }
               );
@@ -99,4 +99,17 @@ export default {
     });
   },
 
+  getUser:(userId)=>{
+  return new Promise(async(resolve,reject)=>{
+    const user = await userSchema.findOne({ _id: userId })
+    if(user){
+      console.log('user',user);
+      resolve(user)
+    }else{
+      reject({message:'user is not found'})
+    }
+   
+  })
+  
+  }
 };

@@ -1,1 +1,1 @@
-export const api='http://localhost:8000/signup'
+export const api='http://localhost:8001'
