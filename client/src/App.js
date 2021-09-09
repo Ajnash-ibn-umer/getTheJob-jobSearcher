@@ -6,6 +6,7 @@ import {useEffect,useContext} from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import api  from './config/ApiConfig'
 import {AuthContext}  from './store/context'
+import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   const  {setUser} =useContext(AuthContext)
  useEffect(() => {

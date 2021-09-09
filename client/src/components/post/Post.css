@@ -1,11 +1,19 @@
 .post {
   width: 500px;
-  height: 100px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   background-color: white;
-  border-radius: 15px;
-  padding: 15px;
-  margin-top: 20px;
-  color: #6d6c6c;
+  border-radius: 8px;
+  color: black;
+  -webkit-box-shadow: 0 0 10px #999999;
+          box-shadow: 0 0 10px #999999;
+  border-color: #707070;
+  margin-top: 10px;
+}
+
+.post h6 {
+  font-weight: bold;
 }
 
 .post div {
@@ -16,19 +24,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   text-align: left;
-  margin-top: 5px;
+  font-size: 0.9rem;
 }
 
 .post div .discription {
-  margin-top: 3px;
-  height: 10px;
+  height: 2.39rem;
+  overflow-y: hidden;
 }
 
-.post div .salary {
-  margin-top: 10px;
+.post Button:focus {
+  outline: none !important;
 }
 /*# sourceMappingURL=Post.css.map */

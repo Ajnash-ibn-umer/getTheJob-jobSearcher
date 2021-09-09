@@ -1,25 +1,26 @@
-.post{
-    width: 500px;
-    height: 100px;
-    background-color: white;
-    border-radius: 15px;
-    padding: 15px;
-    margin-top: 20px;
-color: rgb(109, 108, 108);
-
-div{
+.post {
+  width: 500px;
+  height: max-content;
+  background-color: white;
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 10px rgb(153, 153, 153);
+  border-color: rgb(112, 112, 112);
+  margin-top: 10px;
+  h6 {
+    font-weight: bold;
+  }
+  div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     text-align: left;
-    margin-top: 5px;
-
-    .discription{
-        margin-top: 3px;
-        height: 10px;
+    font-size: 0.9rem;
+    .discription {
+      height: 2.39rem;
+      overflow-y: hidden;
     }
-    .salary{
-        margin-top: 10px;
-    }
+  }
+  Button:focus{
+outline:none !important;
 }
 }

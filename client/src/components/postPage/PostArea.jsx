@@ -4,12 +4,12 @@ import Post from "../post/Post";
 function PostArea() {
   return (
     <div className="main-area">
-      <h1>Jobs</h1>
+      <h3>Jobs</h3>
     <div className='posts'>
         <Post />
         <Post />
         <Post />
-        <Post />
+      
         </div>
     </div>
   );

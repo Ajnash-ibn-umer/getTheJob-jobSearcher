@@ -2,7 +2,7 @@ import React, { useEffect, useState,useContext } from "react";
 import "./AppBar.css";
 import { useHistory, useLocation } from "react-router-dom";
 import {  AuthContext } from "../../store/context";
-
+import {Button} from 'react-bootstrap'
 function AppBar() {
   const {user} =useContext(AuthContext)
   const history = useHistory();
@@ -26,13 +26,12 @@ function AppBar() {
           />
         </div>
       ) : isloginPage ? (
-        <button className="btn" onClick={() => history.push("/signup")}>
-          Signup
-        </button>
+        <Button  variant="outline-primary" className="btn" onClick={() => history.push("/signup")}> Signup</Button>
+        
       ) : (
-        <button className="btn" onClick={() => history.push("/login")}>
+        <Button variant="outline-primary" className="btn" onClick={() => history.push("/login")}>
           Login
-        </button>
+        </Button>
       )}
     </div>
   );

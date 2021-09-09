@@ -54,7 +54,7 @@ router.post("/login", (req, res) => {
     });
 });
 
-/// home rote***************************
+/// home route***************************
 
 router.get("/auth", (req, res) => {
   const token = req.headers.token;
@@ -68,7 +68,7 @@ router.get("/auth", (req, res) => {
       control
         .getUser(value.data)
         .then((resp) => {
-          console.log('usr',resp);
+          console.log("usr", resp);
           res.json(resp);
         })
         .catch((err) => {
@@ -78,4 +78,18 @@ router.get("/auth", (req, res) => {
   });
 });
 
+// post job route
+
+router.post("/post-job", (req, res) => {
+  const postData = req.body; //body data have title,date,description
+
+  control
+    .postJob(postData)
+    .then((resp) => {
+      res.send(resp);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
 export default router;
